@@ -15,27 +15,31 @@ func main() {
 	if err != nil {
 		log.Fatalf("Erro ao ler private_key.b64: %v", err)
 	}
-	fmt.Println("Chave privada (Base64):")
-	fmt.Println(string(privKeyB64))
+	// fmt.Println("Chave privada (Base64):")
+	// fmt.Println(string(privKeyB64))
+
 	privKey, err := base64.StdEncoding.DecodeString(string(privKeyB64))
 	if err != nil {
 		log.Fatalf("Erro ao decodificar chave privada: %v", err)
 	}
-	fmt.Println("Chave privada (Base64):")
-	fmt.Println(base64.StdEncoding.EncodeToString(privKey))
+	// fmt.Println("Chave privada (Base64):")
+	// fmt.Println(base64.StdEncoding.EncodeToString(privKey))
+
 	// Ler o ciphertext codificado em base64
 	ctB64, err := ioutil.ReadFile("ciphertext.b64")
 	if err != nil {
 		log.Fatalf("Erro ao ler ciphertext.b64: %v", err)
 	}
-	fmt.Println("Ciphertext (Base64):")
-	fmt.Println(string(ctB64))
+	// fmt.Println("Ciphertext (Base64):")
+	// fmt.Println(string(ctB64))
+
 	ciphertext, err := base64.StdEncoding.DecodeString(string(ctB64))
 	if err != nil {
 		log.Fatalf("Erro ao decodificar ciphertext: %v", err)
 	}
-	fmt.Println("Ciphertext (Base64):")
-	fmt.Println(base64.StdEncoding.EncodeToString(ciphertext))
+	// fmt.Println("Ciphertext (Base64):")
+	// fmt.Println(base64.StdEncoding.EncodeToString(ciphertext))
+	
 	// Inicializar o KEM com Kyber768 e a chave privada
 	kem := oqs.KeyEncapsulation{}
 	if err := kem.Init("Kyber768", privKey); err != nil {
