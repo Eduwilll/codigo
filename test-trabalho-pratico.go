@@ -52,7 +52,8 @@ func main() {
 	if err != nil {
 		log.Fatalf("Erro ao decapsular o ciphertext: %v", err)
 	}
-
+	fmt.Println("Segredo compartilhado:")
+	fmt.Println(sharedSecret)
 	// Exibir segredo compartilhado (em base64)
 	fmt.Println("Segredo compartilhado (Base64):")
 	fmt.Println(base64.StdEncoding.EncodeToString(sharedSecret))
