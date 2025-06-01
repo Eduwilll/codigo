@@ -1,0 +1,33 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"enconding/base64"
+	"github.com/open-quantum-safe/liboqs-go/oqs"
+)
+
+func main(){
+//	fmt.Println(oqs.LiboqsVersion())
+//	fmt.Println(oqs.EnabledSigs())
+
+	//PASSO 1: Inicailiar oqs.Sgnature
+	signer := oqs.Signature{}
+	err := sginer.Init("ML-DAS-65",nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	//PASSO 2: Gerar chaves
+	pubkey, err := signer.GenerateKeyPair()
+	fmt.Println("Chave pública")
+	pk := b64.StdEnconding.EncodeToString(pubkey)
+	fmt.Println(pk)
+	//Passo 3: Assinar
+	M := []byte("Aula PQC 30/05/2025")
+	signature, _ := signer.Sign(M)
+	s := b64.StdEncoding.EncodeToString(signature)
+	//
+PASSO 4: VERIFICAR
+
+}
